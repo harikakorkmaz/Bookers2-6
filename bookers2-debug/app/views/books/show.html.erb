@@ -23,7 +23,7 @@
 					</td>
 					<td><%= link_to @book.title, book_path(@book) %></td>
 					<td><%= @book.body %></td>
-					<td id="favorites"><%= render partial: 'favorites', locals: {book: @book} %></td>
+					<td id="favorites_<%= @book.id %>"><%= render partial: 'favorites', locals: {book: @book} %></td>
 					<td>コメント数:<%= @book.book_comments.count %></td>
 					<% if @book.user.id == current_user.id %>
 						<td><%= link_to "Edit", edit_book_path(@book), class: "btn-sm btn-success" %></td>
@@ -31,8 +31,8 @@
 					<% end %>
 				</tr>
 			</table>
-			<div id="book_comments">
-			  <%= render 'book_comments' %>
+			<div id="book_comments_<%= @book.id %>">
+			  <%= render partial: 'book_comments/book_comments', locals: {book: @book} %>
 			</div>
 	</div>
 </div>

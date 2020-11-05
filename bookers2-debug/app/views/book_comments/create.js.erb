@@ -1,4 +1,1 @@
-$('#book_comments').html("<%= j(render partial: 'books/favorite', locals: {book: @book}) %>");
-
-$("#comments_area").html("<%= j(render 'index', { book_comments: @book_comment.book.book_comments }) %>")
-$("textarea").val('')
+$('#book_comments_<%= @book.id %>').html("<%= j(render partial: 'book_comments', book: @book) %>");
